@@ -121,7 +121,6 @@ app.get("/articles/:id", function(req, res) {
   console.log(req.params.id);
   // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
   db.Article.findOne({ _id: req.params.id })
-    // ..and populate all of the notes associated with it
     .populate("note")
     .then(function(dbArticle) {
       // If we were able to successfully find an Article with the given id, send it back to the client
@@ -133,12 +132,12 @@ app.get("/articles/:id", function(req, res) {
     }
     })
     .catch(function(err) {
-      // If an error occurred, send it to the client
+      // If an error occurred
       res.json(err);
     });
 });
 
-//Route for deleting an article from the db
+//Route for deleting an article from database
 app.delete("/saved/:id", function(req, res) {
   db.Article.deleteOne({ _id: req.params.id })
   .then(function(removed) {
