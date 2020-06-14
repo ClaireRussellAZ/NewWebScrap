@@ -5,7 +5,7 @@ var mongoose = require("mongoose");
 var exphbs = require("express-handlebars");
 
 // Our scraping tools
-var request = require("request");
+var axios = require("axios");
 var cheerio = require("cheerio");
 
 //// require all models
