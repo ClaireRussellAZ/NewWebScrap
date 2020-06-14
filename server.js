@@ -59,7 +59,7 @@ app.get("/scrape", function(req, res) {
           titleArr.push(dbArticle[j].title)
         }
         console.log(titleArr);
-    request("https://universe.byu.edu/", function(error, response, html) {
+    request("http://toscrape.com/", function(error, response, html) {
     if (!error && response.statusCode == 200) {
         // console.log(html);
       }
